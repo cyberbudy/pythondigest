@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 from jobs.utils import format_currency
 
@@ -9,20 +9,20 @@ class JobFeed(models.Model):
     """RSS - источники импорта вакансий."""
     name = models.CharField(
         max_length=255,
-        verbose_name='Название источника',
+        verbose_name=_('Source name'),
     )
 
     link = models.URLField(
-        max_length=255, verbose_name='Ссылка',
+        max_length=255, verbose_name=_('Link'),
     )
 
     in_edit = models.BooleanField(
-        verbose_name='На тестировании',
+        verbose_name=_('In edit'),
         default=False,
     )
 
     is_activated = models.BooleanField(
-        verbose_name='Включено',
+        verbose_name=_('Is activated'),
         default=True,
     )
 
@@ -30,72 +30,72 @@ class JobFeed(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Источник импорта вакансий'
-        verbose_name_plural = 'Источники импорта вакансий'
+        verbose_name = _("Source of job import")
+        verbose_name_plural = _("Sources of job import")
 
 
 class RejectedList(models.Model):
-    title = models.CharField('Строка', max_length=255)
+    title = models.CharField(_('String'), max_length=255)
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'Слисок исключения'
-        verbose_name_plural = 'Строки для исключения'
+        verbose_name = _('List of rejected')
+        verbose_name_plural = _('Strings to reject')
 
 
 class AcceptedList(models.Model):
-    title = models.CharField('Строка', max_length=255)
+    title = models.CharField(_('String'), max_length=255)
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'Слисок одобрения'
-        verbose_name_plural = 'Строки для одобрения'
+        verbose_name = _('List of accepted')
+        verbose_name_plural = _('Strings to accept')
 
 
 class JobItem(models.Model):
-    title = models.CharField('Название', max_length=255)
-    link = models.URLField('Ссылка')
+    title = models.CharField(_('Name'), max_length=255)
+    link = models.URLField(_('link'))
     description = models.TextField(
-        'Описание вакансии',
+        _('Job description'),
         null=True,
         blank=True
     )
     created_at = models.DateTimeField(
-        'Дата создания',
+        _('Date of creation'),
         auto_now_add=True,
         null=True,
         blank=True
     )
     updated_at = models.DateTimeField(
-        'Дата обновления',
+        _('Date of update'),
         auto_now=True,
         null=True,
         blank=True
     )
     published_at = models.DateTimeField(
-        'Дата публикации',
+        _('Date of publication'),
         null=True,
         editable=False
     )
     src_id = models.CharField(
-        'ID в источнике',
+        _('ID in the source'),
         max_length=50,
         null=True,
 
         blank=True
     )
     src_place_name = models.CharField(
-        'Название места в источнике',
+        _("Place's name in the source"),
         max_length=255,
         null=True,
         blank=True
     )
     src_place_id = models.CharField(
-        'ID места в источнике',
+        _("Place's ID in the source"),
         max_length=20,
         db_index=True,
         null=True,
@@ -107,28 +107,28 @@ class JobItem(models.Model):
         blank=True
     )
     url_logo = models.URLField(
-        'URL логотипа',
+        _("Logo's URL"),
         null=True,
         blank=True
     )
     employer_name = models.CharField(
-        'Работодатель',
+        _('Employer'),
         max_length=255,
         null=True,
         blank=True
     )
     salary_from = models.PositiveIntegerField(
-        'Заработная плата',
+        _('Salary'),
         null=True,
         blank=True
     )
     salary_till = models.PositiveIntegerField(
-        'З/п до',
+        _('Salary till'),
         null=True,
         blank=True
     )
     salary_currency = models.CharField(
-        'Валюта',
+        _('Currency'),
         max_length=255,
         null=True,
         blank=True
@@ -139,17 +139,17 @@ class JobItem(models.Model):
             if self.salary_from else ''
         high_limit = format_currency(self.salary_till) \
             if self.salary_till else ''
-        result += ' от {low}'.format(low=low_limit)
-        result += ' до {high}'.format(high=high_limit)
+        result += str(_(' from {low}')).format(low=low_limit)
+        result += str(_(' to {high}')).format(high=high_limit)
         result += ' ' + self.salary_currency \
             if self.salary_currency else ''
         return result
 
-    get_salary_str.short_description = 'Зарплата'
+    get_salary_str.short_description = _('Salary')
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'Вакансия'
-        verbose_name_plural = 'Работа'
+        verbose_name = _('Job')
+        verbose_name_plural = _('Jobs')

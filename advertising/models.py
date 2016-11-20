@@ -110,8 +110,8 @@ class Advertising(models.Model):
     )
 
     class Meta:
-        verbose_name = 'Реклама'
-        verbose_name_plural = 'Реклама'
+        verbose_name = _('Advertising')
+        verbose_name_plural = _('Advertising')
 
     def __str__(self):
         return self.name

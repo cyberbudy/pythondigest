@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-19 18:12+0300\n"
-"PO-Revision-Date: 2016-11-19 18:12+0230\n"
+"POT-Creation-Date: 2016-11-20 15:13+0300\n"
+"PO-Revision-Date: 2016-11-20 15:14+0230\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,10 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
+
+#: advertising/apps.py:8
+msgid "Advertising"
+msgstr "Реклама"
 
 #: advertising/models.py:11 advertising/models.py:26 advertising/models.py:38
 #: advertising/models.py:96 digest/models.py:125 digest/models.py:191
@@ -74,7 +78,7 @@ msgstr "Рекламная страница"
 msgid "Ads pages"
 msgstr "Рекламные страницы"
 
-#: advertising/models.py:95 digest/models.py:570
+#: advertising/models.py:95 digest/models.py:570 jobs/models.py:60
 msgid "Name"
 msgstr "Название"
 
@@ -382,7 +386,6 @@ msgstr "Только на английском"
 #: templates/digest/blocks/_feed_item.html:110
 #: templates/digest/blocks/_item_as_line.html:21
 #: templates/digest/pages/news_list.html:25
-#| msgid "Language of content"
 msgid "Language of the news"
 msgstr "Язык новости"
 
@@ -466,13 +469,123 @@ msgstr "Скинуться на хостинг"
 msgid "Donate on cake"
 msgstr "Скинуться на торт"
 
-#: jobs/admin.py:23 jobs/admin.py:45
+#: jobs/admin.py:23 jobs/admin.py:45 jobs/models.py:16
 msgid "Link"
 msgstr "Ссылка"
 
-#: jobs/apps.py:8
+#: jobs/apps.py:8 jobs/models.py:155
 msgid "Jobs"
 msgstr "Вакансии"
+
+#: jobs/models.py:12
+msgid "Source name"
+msgstr "Название источника"
+
+#: jobs/models.py:20
+msgid "In edit"
+msgstr "На тестировании"
+
+#: jobs/models.py:25
+msgid "Is activated"
+msgstr "Включено"
+
+#: jobs/models.py:33
+msgid "Source of job import"
+msgstr "Источник импорта вакансий"
+
+#: jobs/models.py:34
+msgid "Sources of job import"
+msgstr "Источники импорта вакансий"
+
+#: jobs/models.py:38 jobs/models.py:49
+msgid "String"
+msgstr "Строка"
+
+#: jobs/models.py:44
+msgid "List of rejected"
+msgstr "Слисок исключения"
+
+#: jobs/models.py:45
+msgid "Strings to reject"
+msgstr "Строки для исключения"
+
+#: jobs/models.py:55
+msgid "List of accepted"
+msgstr ""
+"Слисок одобрения' \n"
+" "
+
+#: jobs/models.py:56
+#, fuzzy
+#| msgid "Strings to reject"
+msgid "Strings to accept"
+msgstr "Строки для исключения"
+
+#: jobs/models.py:61
+msgid "link"
+msgstr "Ссылка"
+
+#: jobs/models.py:63
+msgid "Job description"
+msgstr "Описание вакансии"
+
+#: jobs/models.py:68
+msgid "Date of creation"
+msgstr "Дата создания"
+
+#: jobs/models.py:74
+msgid "Date of update"
+msgstr "Дата обновления"
+
+#: jobs/models.py:80
+msgid "Date of publication"
+msgstr "Дата обновления"
+
+#: jobs/models.py:85
+msgid "ID in the source"
+msgstr "ID в источнике"
+
+#: jobs/models.py:92
+msgid "Place's name in the source"
+msgstr "Название места в источнике"
+
+#: jobs/models.py:98
+msgid "Place's ID in the source"
+msgstr "Place's ID in the source"
+
+#: jobs/models.py:110
+msgid "Logo's URL"
+msgstr "URL логотипа"
+
+#: jobs/models.py:115
+msgid "Employer"
+msgstr "Работодатель"
+
+#: jobs/models.py:121 jobs/models.py:148
+msgid "Salary"
+msgstr "Заработная плата"
+
+#: jobs/models.py:126
+msgid "Salary till"
+msgstr "З/п до"
+
+#: jobs/models.py:131
+msgid "Currency"
+msgstr "Валюта"
+
+#: jobs/models.py:142
+#, python-brace-format
+msgid " from {low}"
+msgstr "от {low}"
+
+#: jobs/models.py:143
+#, python-brace-format
+msgid " to {high}"
+msgstr "до {high}"
+
+#: jobs/models.py:154
+msgid "Job"
+msgstr "Вакансия"
 
 #: jobs/templates/jobs_list.html:10
 msgid ""
@@ -537,6 +650,14 @@ msgstr "Книги"
 #: landings/templates/landings/pages/django.html:98
 msgid "Documentation"
 msgstr "Документация"
+
+#: src/likes/likes/templates/likes/inclusion_tags/likes.html:12
+msgid "I Like"
+msgstr ""
+
+#: src/likes/likes/templates/likes/inclusion_tags/likes.html:14
+msgid "Likes"
+msgstr ""
 
 #: templates/404.html:5
 msgid "Not Found"
